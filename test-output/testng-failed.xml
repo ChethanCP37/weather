@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite guice-stage="DEVELOPMENT" name="Failed suite [WeatherSuite]">
+  <test thread-count="5" name="WeatherTest(failed)">
+    <classes>
+      <class name="com.weather.test.WeatherReport">
+        <methods>
+          <include name="clean"/>
+          <include name="compareWetherInfo"/>
+          <include name="start"/>
+        </methods>
+      </class> <!-- com.weather.test.WeatherReport -->
+    </classes>
+  </test> <!-- WeatherTest(failed) -->
+</suite> <!-- Failed suite [WeatherSuite] -->

@@ -1,0 +1,63 @@
+2020-09-28 01:55:40,006  INFO [main] WeatherBase:54 - chrome browser is opened
+2020-09-28 01:56:44,131  INFO [main] WeatherBase:60 - Url is intiated
+2020-09-28 01:56:44,921 DEBUG [main] BasicClientConnectionManager:161 - Get connection for route {s}->https://api.openweathermap.org:443
+2020-09-28 01:56:44,973 DEBUG [main] DefaultClientConnectionOperator:177 - Connecting to api.openweathermap.org:443
+2020-09-28 01:56:45,563 DEBUG [main] RequestAddCookies:123 - CookieSpec selected: ignoreCookies
+2020-09-28 01:56:45,565 DEBUG [main] RequestAuthCache:77 - Auth cache not set in the context
+2020-09-28 01:56:45,565 DEBUG [main] RequestTargetAuthentication:80 - Target auth state: UNCHALLENGED
+2020-09-28 01:56:45,566 DEBUG [main] RequestProxyAuthentication:89 - Proxy auth state: UNCHALLENGED
+2020-09-28 01:56:45,566 DEBUG [main] DefaultHttpClient:682 - Attempt 1 to execute request
+2020-09-28 01:56:45,567 DEBUG [main] DefaultClientConnection:274 - Sending request: GET /data/2.5/weather?appid=7fe67bf08c80ded756e598d6f8fedaea&q=Bengaluru%2CKA%2CINDIA HTTP/1.1
+2020-09-28 01:56:45,567 DEBUG [main] wire:73 -  >> "GET /data/2.5/weather?appid=7fe67bf08c80ded756e598d6f8fedaea&q=Bengaluru%2CKA%2CINDIA HTTP/1.1[\r][\n]"
+2020-09-28 01:56:45,569 DEBUG [main] wire:73 -  >> "Content-Type: application/json; charset=UTF-8[\r][\n]"
+2020-09-28 01:56:45,569 DEBUG [main] wire:73 -  >> "Accept: application/json[\r][\n]"
+2020-09-28 01:56:45,570 DEBUG [main] wire:73 -  >> "Content-Length: 0[\r][\n]"
+2020-09-28 01:56:45,570 DEBUG [main] wire:73 -  >> "Host: api.openweathermap.org[\r][\n]"
+2020-09-28 01:56:45,570 DEBUG [main] wire:73 -  >> "Connection: Keep-Alive[\r][\n]"
+2020-09-28 01:56:45,572 DEBUG [main] wire:73 -  >> "User-Agent: Apache-HttpClient/4.5.3 (Java/1.8.0_242)[\r][\n]"
+2020-09-28 01:56:45,572 DEBUG [main] wire:73 -  >> "Accept-Encoding: gzip,deflate[\r][\n]"
+2020-09-28 01:56:45,572 DEBUG [main] wire:73 -  >> "[\r][\n]"
+2020-09-28 01:56:45,573 DEBUG [main] headers:278 - >> GET /data/2.5/weather?appid=7fe67bf08c80ded756e598d6f8fedaea&q=Bengaluru%2CKA%2CINDIA HTTP/1.1
+2020-09-28 01:56:45,573 DEBUG [main] headers:281 - >> Content-Type: application/json; charset=UTF-8
+2020-09-28 01:56:45,573 DEBUG [main] headers:281 - >> Accept: application/json
+2020-09-28 01:56:45,573 DEBUG [main] headers:281 - >> Content-Length: 0
+2020-09-28 01:56:45,574 DEBUG [main] headers:281 - >> Host: api.openweathermap.org
+2020-09-28 01:56:45,574 DEBUG [main] headers:281 - >> Connection: Keep-Alive
+2020-09-28 01:56:45,574 DEBUG [main] headers:281 - >> User-Agent: Apache-HttpClient/4.5.3 (Java/1.8.0_242)
+2020-09-28 01:56:45,575 DEBUG [main] headers:281 - >> Accept-Encoding: gzip,deflate
+2020-09-28 01:56:45,701 DEBUG [main] wire:73 -  << "HTTP/1.1 200 OK[\r][\n]"
+2020-09-28 01:56:45,702 DEBUG [main] wire:73 -  << "Server: openresty[\r][\n]"
+2020-09-28 01:56:45,702 DEBUG [main] wire:73 -  << "Date: Sun, 27 Sep 2020 20:26:45 GMT[\r][\n]"
+2020-09-28 01:56:45,702 DEBUG [main] wire:73 -  << "Content-Type: application/json; charset=utf-8[\r][\n]"
+2020-09-28 01:56:45,702 DEBUG [main] wire:73 -  << "Content-Length: 468[\r][\n]"
+2020-09-28 01:56:45,703 DEBUG [main] wire:73 -  << "Connection: keep-alive[\r][\n]"
+2020-09-28 01:56:45,703 DEBUG [main] wire:73 -  << "X-Cache-Key: /data/2.5/weather?q=bengaluru%2cka%2cindia[\r][\n]"
+2020-09-28 01:56:45,703 DEBUG [main] wire:73 -  << "Access-Control-Allow-Origin: *[\r][\n]"
+2020-09-28 01:56:45,703 DEBUG [main] wire:73 -  << "Access-Control-Allow-Credentials: true[\r][\n]"
+2020-09-28 01:56:45,703 DEBUG [main] wire:73 -  << "Access-Control-Allow-Methods: GET, POST[\r][\n]"
+2020-09-28 01:56:45,704 DEBUG [main] wire:73 -  << "[\r][\n]"
+2020-09-28 01:56:45,704 DEBUG [main] DefaultClientConnection:259 - Receiving response: HTTP/1.1 200 OK
+2020-09-28 01:56:45,704 DEBUG [main] headers:262 - << HTTP/1.1 200 OK
+2020-09-28 01:56:45,705 DEBUG [main] headers:265 - << Server: openresty
+2020-09-28 01:56:45,705 DEBUG [main] headers:265 - << Date: Sun, 27 Sep 2020 20:26:45 GMT
+2020-09-28 01:56:45,705 DEBUG [main] headers:265 - << Content-Type: application/json; charset=utf-8
+2020-09-28 01:56:45,705 DEBUG [main] headers:265 - << Content-Length: 468
+2020-09-28 01:56:45,705 DEBUG [main] headers:265 - << Connection: keep-alive
+2020-09-28 01:56:45,706 DEBUG [main] headers:265 - << X-Cache-Key: /data/2.5/weather?q=bengaluru%2cka%2cindia
+2020-09-28 01:56:45,706 DEBUG [main] headers:265 - << Access-Control-Allow-Origin: *
+2020-09-28 01:56:45,706 DEBUG [main] headers:265 - << Access-Control-Allow-Credentials: true
+2020-09-28 01:56:45,706 DEBUG [main] headers:265 - << Access-Control-Allow-Methods: GET, POST
+2020-09-28 01:56:45,709 DEBUG [main] DefaultHttpClient:509 - Connection can be kept alive indefinitely
+2020-09-28 01:56:45,722 DEBUG [main] RequestSpecificationImpl$RestAssuredHttpBuilder:544 - Parsing response as: application/json; charset=utf-8
+2020-09-28 01:56:45,722 DEBUG [main] RequestSpecificationImpl$RestAssuredHttpBuilder:547 - Parsed data to instance of: class org.apache.http.conn.EofSensorInputStream
+2020-09-28 01:56:45,742 DEBUG [main] wire:87 -  << "{"coord":{"lon":77.59,"lat":12.98},"weather":[{"id":803,"main":"Clouds","description":"broken clouds","icon":"04n"}],"base":"stations","main":{"temp":294.15,"feels_like":297.64,"temp_min":294.15,"temp_max":294.15,"pressure":1014,"humidity":100},"visibility":6000,"wind":{"speed":1,"deg":0},"clouds":{"all":75},"dt":1601238230,"sys":{"type":1,"id":9208,"country":"IN","sunrise":1601253525,"sunset":1601296900},"timezone":19800,"id":1277333,"name":"Bengaluru","cod":200}"
+2020-09-28 01:56:45,743 DEBUG [main] BasicClientConnectionManager:200 - Releasing connection org.apache.http.impl.conn.ManagedClientConnectionImpl@534243e4
+2020-09-28 01:56:45,743 DEBUG [main] BasicClientConnectionManager:225 - Connection can be kept alive indefinitely
+2020-09-28 01:56:46,231  INFO [main] WeatherBase:35 - No-Thanks button clicked on popup
+2020-09-28 01:56:46,395  INFO [main] WeatherBase:47 - More option button clicked on home page
+2020-09-28 01:56:51,087  INFO [main] WeatherBase:53 - Weather option button clicked on home page
+2020-09-28 01:56:51,287  INFO [main] UiUtil:38 - City name is already selected by default
+
+2020-09-28 01:56:52,306  INFO [main] WeatherBase:63 - Temp in Degree on map ---> 27
+2020-09-28 01:56:52,356  INFO [main] WeatherBase:68 - Temp in Fahrenheit on map  ---> 81
+2020-09-28 01:56:52,406  INFO [main] WeatherBase:74 - Wind Speed on map ---> 4.82
