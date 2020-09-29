@@ -2,6 +2,7 @@ package com.weather.test;
 
 import java.util.Map;
 
+import org.testng.Assert;
 import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.Test;
@@ -13,8 +14,6 @@ import com.weather.ui.HomePage;
 import com.weather.ui.MapPage;
 import com.weather.util.UiUtil;
 import com.weather.util.WeatherInfo;
-
-import junit.framework.Assert;
 
 public class WeatherReport extends WeatherBase {
 	static Logger log = Logger.getLogger(WeatherReport.class);
@@ -63,15 +62,29 @@ public class WeatherReport extends WeatherBase {
 
 		Map<String, Float> obj=UiUtil.comparator(uiWeatherInfo, apiWeatherInfo,tempDegreeVarience,tempFahrenheitVarience,windSpeedVarience);
 		log.info("Weather UI details are received");
+
+		float tempDegreeUi=(obj.get("tempDegreeUi"));
+		float tempDegreeApi=(obj.get("tempDegreeApi"));
+		float varTempDegreeApi=(obj.get("varTempDegreeApi"));
+
+		float tempFaherUi=(obj.get("tempFaherUi"));
+		float tempFahrApi=(obj.get("tempFahrApi"));
+		float varTempFaherApi=(obj.get("varTempFaherApi"));
+
+		float windSpeedUi=(obj.get("windSpeedUi"));
+		float windSpeedKmphApi=(obj.get("windSpeedKmphApi"));
+		float varWindSpeedApi=(obj.get("varWindSpeedApi"));
+
 		if((obj.get("tempDegreeApi")!=0) && (obj.get("tempFahrApi")!=0) && (obj.get("tempFahrApi")!=0)) {
 			log.info("Temparature in degrees of API and UI with variance are checking");
-			Assert.assertTrue("Temparature in degree of API and UI are NOT same with variance, pls increase the variance value if necessary", (obj.get("tempDegreeUi")<=(obj.get("tempDegreeApi")+obj.get("varTempDegreeApi")) && obj.get("tempDegreeUi")>=(obj.get("tempDegreeApi")-obj.get("varTempDegreeApi"))));
+			Assert.assertTrue(tempDegreeUi<=(tempDegreeApi+varTempDegreeApi) && tempDegreeUi>=(tempDegreeApi-varTempDegreeApi), "Temparature in degree of API and UI are NOT same with variance, pls increase the variance value if necessary");
 
 			log.info("Temparature in fahrenheit of API and UI with variance are checking");
-			Assert.assertTrue("Temparature in fahrenheit of API and UI are NOT same with variance, pls increase the variance value if necessary", (obj.get("tempFaherUi")<=(obj.get("tempFahrApi")+obj.get("varTempFaherApi")) && obj.get("tempFaherUi")>=(obj.get("tempFahrApi")-obj.get("varTempFaherApi"))));
+			Assert.assertTrue(tempFaherUi<=(tempFahrApi+varTempFaherApi) && tempFaherUi>=(tempFahrApi-varTempFaherApi),"Temparature in fahrenheit of API and UI are NOT same with variance, pls increase the variance value if necessary");
 
 			log.info("Wind Speed in kmph of API and UI with variance are checking");
-			Assert.assertTrue("Wind Speed in kmph of API and UI are NOT same with variance, pls increase the variance value if necessary", (obj.get("tempFaherUi")<=(obj.get("tempFahrApi")+obj.get("varTempFaherApi")) && obj.get("tempFaherUi")>=(obj.get("tempFahrApi")-obj.get("varTempFaherApi"))));
+			Assert.assertTrue(windSpeedUi<=(windSpeedKmphApi+varWindSpeedApi) && windSpeedUi>=(windSpeedKmphApi-varWindSpeedApi),"Wind Speed in kmph of API and UI are NOT same with variance, pls increase the variance value if necessary");
+
 		}
 		else {
 			Assert.fail("No data returned from API");

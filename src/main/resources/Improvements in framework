@@ -1,0 +1,17 @@
+Satisfactory(Positives):
+1. Decoupling configurations/test data from the code
+2. Using an object oriented approach to store weather information
+3. Creating a map from comparator for final validation
+4. Use of crisp package structure
+
+
+Below Par(Areas of concern):
+​
+1. Most of the code is static in nature for no evident reason. Making webDriver static would mean compromising on parallel execution of tests in the framework
+2. Some duplications of code exist in the framework, specially the condition `(obj.get("tempFahrApi")!=0)` in the test file (code should be following the DO-NOT-REPEAT-YOURSELF paradigm)
+3. UI methods are using hard waits(Thread.sleep) that make script brittle
+4. The test suite is very thin - no validations on UI and API layer at all
+5. Underlying automation library(WebDriver) is exposed to the test layer - reflecting a very strong coupling and making framework less scalable
+6. Testing framework used isn't consistent - TestNG and JUnit are both used in the same test class - isn't required.
+7. Git commits are missing - impossible to track framework growth
+8. Use soft assert for assertion
