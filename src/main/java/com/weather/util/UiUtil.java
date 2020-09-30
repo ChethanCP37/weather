@@ -19,9 +19,9 @@ public class UiUtil {
 	public static Logger log = Logger.getLogger(UiUtil.class);
 	public static Boolean tempDegreeMatch,tempFahrMatch,windSpeedMatch=false;
 	public static Boolean tempDegree,tempFahr,windSpeed=false;
-	public static WebDriverWait wait=null;
 	public static JSONObject jsonObj=null;
 	public static int TIMEOUT_SEC=30;
+	public static WebDriverWait wait=null;
 
 	public static void waitForElement(WebDriver driver,WebElement element) {
 		wait = new WebDriverWait(driver,TIMEOUT_SEC);
@@ -32,7 +32,9 @@ public class UiUtil {
 		try {
 			if(checkBox.isSelected()==false) {
 				checkBox.click();
-				Thread.sleep(200);
+				waitForElement(driver,checkBox);
+				wait = new WebDriverWait(driver,TIMEOUT_SEC);
+				wait.until(ExpectedConditions.elementToBeClickable(checkBox));
 			}
 			else {
 				log.info("City name is already selected by default\n");
@@ -49,7 +51,6 @@ public class UiUtil {
 			for(int i=0;i<3;i++) {
 				action.sendKeys(Keys.ARROW_DOWN).perform();
 				zoomOut.click();
-				Thread.sleep(200);
 			}
 		}
 	}
@@ -69,7 +70,7 @@ public class UiUtil {
 			windSpeedApi = Float.parseFloat(apiWeatherInfo.windSpeed);
 			windSpeedKmphApi = (float) (1.609344*windSpeedApi);
 		}
-		
+
 		Reporter.log("API weather info: Temp in degree "+tempDegreeApi+", Temp in Fahrenheit "+tempFahrApi+", Wind speed in kmph "+windSpeedKmphApi,true);
 
 		float tempDegreeUi = Float.parseFloat(uiWeatherInfo.tempDegree);

@@ -9,7 +9,6 @@ import com.weather.base.WeatherBase;
 import com.weather.util.UiUtil;
 
 public class HomePage extends WeatherBase {
-	public WebDriver driver=null;
 	
 	@FindBy(xpath="//a[@id='h_sub_menu'][@class='topnavmore']")
 	WebElement moreOption;
@@ -23,14 +22,12 @@ public class HomePage extends WeatherBase {
 	@FindBy(xpath = "//div[@class='noti_btnwrap']//a[contains(text(),'Allow')]")
 	WebElement allowAlert;
 	
-	
 	public HomePage(WebDriver driver) {
-		this.driver=driver;
 		PageFactory.initElements(driver, this);
 	}
 	
 	public void clickNoThanksButtonToAlerts() {
-		//UiUtil.waitForElement(driver, cancelAlert);
+		UiUtil.waitForElement(driver, cancelAlert);
 		cancelAlert.click();
 		log.info("No-Thanks button clicked on popup");
 	}

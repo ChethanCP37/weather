@@ -6,6 +6,7 @@ import org.testng.Assert;
 import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.Test;
+import org.testng.asserts.SoftAssert;
 import org.testng.log4testng.Logger;
 
 import com.weather.api.WeatherApi;
@@ -46,6 +47,7 @@ public class WeatherReport extends WeatherBase {
 
 		weaApi= new WeatherApi();
 		apiWeatherInfo=weaApi.getMethod(cityName, stateCode, countryCode, apiKey);
+		
 		log.info("Weather API response details are received");
 
 		hmPage = new HomePage(driver);
@@ -76,15 +78,18 @@ public class WeatherReport extends WeatherBase {
 		float varWindSpeedApi=(obj.get("varWindSpeedApi"));
 
 		if((obj.get("tempDegreeApi")!=0) && (obj.get("tempFahrApi")!=0) && (obj.get("tempFahrApi")!=0)) {
+			SoftAssert sAssert= new SoftAssert();
 			log.info("Temparature in degrees of API and UI with variance are checking");
-			Assert.assertTrue(tempDegreeUi<=(tempDegreeApi+varTempDegreeApi) && tempDegreeUi>=(tempDegreeApi-varTempDegreeApi), "Temparature in degree of API and UI are NOT same with variance, pls increase the variance value if necessary");
-
+			sAssert.assertTrue(tempDegreeUi<=(tempDegreeApi+varTempDegreeApi) && tempDegreeUi>=(tempDegreeApi-varTempDegreeApi), "Temparature in degree of API and UI are NOT same with variance, pls increase the variance value if necessary");
+			
 			log.info("Temparature in fahrenheit of API and UI with variance are checking");
-			Assert.assertTrue(tempFaherUi<=(tempFahrApi+varTempFaherApi) && tempFaherUi>=(tempFahrApi-varTempFaherApi),"Temparature in fahrenheit of API and UI are NOT same with variance, pls increase the variance value if necessary");
+			sAssert.assertTrue(tempFaherUi<=(tempFahrApi+varTempFaherApi) && tempFaherUi>=(tempFahrApi-varTempFaherApi),"Temparature in fahrenheit of API and UI are NOT same with variance, pls increase the variance value if necessary");
 
 			log.info("Wind Speed in kmph of API and UI with variance are checking");
-			Assert.assertTrue(windSpeedUi<=(windSpeedKmphApi+varWindSpeedApi) && windSpeedUi>=(windSpeedKmphApi-varWindSpeedApi),"Wind Speed in kmph of API and UI are NOT same with variance, pls increase the variance value if necessary");
-
+			sAssert.assertTrue(windSpeedUi<=(windSpeedKmphApi+varWindSpeedApi) && windSpeedUi>=(windSpeedKmphApi-varWindSpeedApi),"Wind Speed in kmph of API and UI are NOT same with variance, pls increase the variance value if necessary");
+	
+			sAssert.assertAll();
+			
 		}
 		else {
 			Assert.fail("No data returned from API");
